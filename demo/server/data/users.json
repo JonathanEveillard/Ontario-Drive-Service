@@ -1,0 +1,30 @@
+[
+  {
+    "id": "u1",
+    "name": "Konkordia Algoulkin",
+    "licenceClass": "G",
+    "licenceStatus": "Valid",
+    "licenceExpiry": "2027-11-03"
+  },
+  {
+    "id": "u2",
+    "name": "Outawais MckGil",
+    "licenceClass": "G",
+    "licenceStatus": "Valid",
+    "licenceExpiry": "2027-11-03"
+  },
+  {
+    "id": "u3",
+    "name": "Karlton Watelou",
+    "licenceClass": "G",
+    "licenceStatus": "Valid",
+    "licenceExpiry": "2027-11-03"
+  },
+  {
+    "id":"u4",
+    "name": "Jonathan",
+    "licenceClass": "G",
+    "licenceStatus": "Valid",
+    "licenceExpiry": "2029-03-03"
+  }
+]

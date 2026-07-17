@@ -1,0 +1,31 @@
+{
+  "name": "ontario-drive-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:unit": "jest",
+    "test:e2e" : "playwright test",
+    "test:all" : "npm run test:unit && npm run test:e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanEveillard/Ontario-Drive-Service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JonathanEveillard/Ontario-Drive-Service/issues"
+  },
+  "homepage": "https://github.com/JonathanEveillard/Ontario-Drive-Service#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "jest": "^30.4.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

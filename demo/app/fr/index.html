@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/@ongov/ontario-design-system-global-styles@latest/dist/misc/ontario-design-system-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../main.css">
+    <title>Service des permis de conduire de l'Ontario</title>
+</head>
+    <body>
+        <nav>
+            <!-- Banner -->
+            <div class="banner">
+                <a href="index.html">
+                    <img src="../../Ontario_logo.png" alt="Gouvernement de l'Ontario" property="logo">
+                </a>
+            </div>
+
+            <!-- Language -->
+             <div class="lang">
+                <button type="button" aria-current="true">
+                    Français
+                </button>
+
+                <button type="button" onclick="window.location.href='../index.html'">
+                    English
+                </button>
+             </div>
+
+
+        </nav>
+
+        <!-- Main -->
+        <main>
+            <h1>
+                <b>Permis de conduire </b>
+            </h1>
+            <p class="ontario-lead-statement">Prenez rendez-vous grâce à notre Service des permis de conduire de l'Ontario</p>
+
+            <section class="status-check">
+                <p>Vous ne prenez pas un nouveau rendez-vous? <a href="auth.html">Vérifiez l'état de votre rendez-vous</a>.</p>
+            </section>
+
+            <div class="content">
+            <section class="booking" id="booking">
+                <h2>Prendre rendez-vous</h2>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="fullName">Nom complet</label>
+                        <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse courriel</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Type de service</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Sélectionnez un service</option>
+                            <option value="new-license">Nouveau permis de conduire</option>
+                            <option value="renewal">Renouvellement de permis</option>
+                            <option value="road-test">Réservation d'un examen de conduite</option>
+                            <option value="knowledge-test">Réservation d'un examen théorique</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Emplacement préféré</label>
+                        <select id="location" name="location" required>
+                            <option value="" disabled selected>Sélectionnez un emplacement</option>
+                            <optgroup label="Grandes villes">
+                                <option value="toronto">Toronto</option>
+                                <option value="ottawa">Ottawa</option>
+                                <option value="brampton">Brampton</option>
+                                <option value="mississauga">Mississauga</option>
+                                <option value="hamilton">Hamilton</option>
+                                <option value="london">London</option>
+                            </optgroup>
+                            <optgroup label="Autres villes notables de l'Ontario">
+                                <option value="barrie">Barrie</option>
+                                <option value="belleville">Belleville</option>
+                                <option value="brantford">Brantford</option>
+                                <option value="brockville">Brockville</option>
+                                <option value="burlington">Burlington</option>
+                                <option value="cambridge">Cambridge</option>
+                                <option value="chatham-kent">Chatham-Kent</option>
+                                <option value="clarence-rockland">Clarence-Rockland</option>
+                                <option value="cornwall">Cornwall</option>
+                                <option value="dryden">Dryden</option>
+                                <option value="elliot-lake">Elliot Lake</option>
+                                <option value="greater-sudbury">Grand Sudbury</option>
+                                <option value="guelph">Guelph</option>
+                                <option value="haldimand-county">Comté de Haldimand</option>
+                                <option value="kawartha-lakes">Kawartha Lakes</option>
+                                <option value="kenora">Kenora</option>
+                                <option value="kingston">Kingston</option>
+                                <option value="kitchener">Kitchener</option>
+                                <option value="markham">Markham</option>
+                                <option value="niagara-falls">Niagara Falls</option>
+                                <option value="norfolk-county">Comté de Norfolk</option>
+                                <option value="north-bay">North Bay</option>
+                                <option value="orillia">Orillia</option>
+                                <option value="oshawa">Oshawa</option>
+                                <option value="owen-sound">Owen Sound</option>
+                                <option value="pembroke">Pembroke</option>
+                                <option value="peterborough">Peterborough</option>
+                                <option value="pickering">Pickering</option>
+                                <option value="prince-edward-county">Comté de Prince Edward</option>
+                                <option value="quinte-west">Quinte West</option>
+                                <option value="richmond-hill">Richmond Hill</option>
+                                <option value="sarnia">Sarnia</option>
+                                <option value="sault-ste-marie">Sault-Sainte-Marie</option>
+                                <option value="st-catharines">St. Catharines</option>
+                                <option value="st-thomas">St. Thomas</option>
+                                <option value="stratford">Stratford</option>
+                                <option value="thorold">Thorold</option>
+                                <option value="thunder-bay">Thunder Bay</option>
+                                <option value="timmins">Timmins</option>
+                                <option value="vaughan">Vaughan</option>
+                                <option value="waterloo">Waterloo</option>
+                                <option value="welland">Welland</option>
+                                <option value="windsor">Windsor</option>
+                                <option value="woodstock">Woodstock</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date préférée</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Prendre rendez-vous</button>
+                </form>
+            </section>
+
+            <section class="confirmation" id="confirmation">
+                <h2>Votre rendez-vous est confirmé</h2>
+                <p>Merci, <span id="confirmationName"></span>. Une confirmation sera envoyée à <span id="confirmationEmail"></span> sous peu.</p>
+                <p>Redirection vers la connexion dans <span id="redirectCountdown">10</span> secondes&hellip;</p>
+            </section>
+
+            <img class="license-image" src="../../License.jpg" alt="Exemple de permis de conduire de l'Ontario" width="300" height="200">
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; Imprimeur du Roi pour l'Ontario, 2012–2026<span style="font-size: xx-small; color:gray; margin-left: 50px;"> AVIS DE NON-RESPONSABILITÉ : Cette page n'est pas une page officielle du gouvernement de l'Ontario</span></p>
+        </footer>
+
+        <script>
+            const form = document.querySelector('.booking-form');
+            const bookingSection = document.getElementById('booking');
+            const confirmationSection = document.getElementById('confirmation');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                document.getElementById('confirmationName').textContent = document.getElementById('fullName').value;
+                document.getElementById('confirmationEmail').textContent = document.getElementById('email').value;
+                bookingSection.style.display = 'none';
+                confirmationSection.classList.add('visible');
+
+                const countdownEl = document.getElementById('redirectCountdown');
+                let secondsLeft = 10;
+                countdownEl.textContent = secondsLeft;
+                const countdownInterval = setInterval(() => {
+                    secondsLeft -= 1;
+                    countdownEl.textContent = secondsLeft;
+                    if (secondsLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = 'auth.html';
+                    }
+                }, 1000);
+            });
+        </script>
+    </body>
+</html>

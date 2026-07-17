@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/@ongov/ontario-design-system-global-styles@latest/dist/misc/ontario-design-system-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../main.css">
+    <title>Tableau de bord — Service des permis de conduire de l'Ontario</title>
+</head>
+    <body>
+        <nav>
+            <!-- Banner -->
+            <div class="banner">
+                <a href="index.html">
+                    <img src="../../Ontario_logo.png" alt="Gouvernement de l'Ontario" property="logo">
+                </a>
+            </div>
+
+            <!-- Language -->
+             <div class="lang">
+                <button type="button" aria-current="true">
+                    Français
+                </button>
+
+                <button type="button" onclick="window.location.href='../dashboard.html'">
+                    English
+                </button>
+             </div>
+
+        </nav>
+
+        <!-- Main -->
+        <main>
+            <div class="dashboard-header">
+                <div>
+                    <h1><b>Bon retour, <span id="userName">Jordan</span></b></h1>
+                    <p class="ontario-lead-statement">Voici un aperçu de votre permis de conduire et de vos rendez-vous.</p>
+                </div>
+                <a href="index.html#booking" class="btn-primary dashboard-header-cta">Prendre un nouveau rendez-vous</a>
+            </div>
+
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Catégorie de permis</span>
+                    <span class="stat-value" id="licenceClassValue">Catégorie G</span>
+                    <span class="badge badge-success" id="licenceStatusBadge">Valide</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Date d'expiration</span>
+                    <span class="stat-value" id="licenceExpiryValue">3 nov. 2027</span>
+                    <span class="stat-sub" id="licenceReminderText">Rappel de renouvellement dans 90 jours</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Rendez-vous à venir</span>
+                    <span class="stat-value" id="upcomingCountValue">1</span>
+                    <span class="stat-sub" id="totalBookedText">3 réservés au total</span>
+                </div>
+            </section>
+
+            <div class="dashboard-grid">
+                <section class="card upcoming-appointment">
+                    <h2>Prochain rendez-vous</h2>
+                    <div id="upcomingAppointmentContent">
+                        <div class="appointment-detail">
+                            <span class="appointment-service" id="upcomingService">Renouvellement de permis</span>
+                            <span class="badge badge-info" id="upcomingBadge">Confirmé</span>
+                        </div>
+                        <dl class="appointment-meta">
+                            <div>
+                                <dt>Date</dt>
+                                <dd id="upcomingDate">Mercredi 22 juillet 2026</dd>
+                            </div>
+                            <div>
+                                <dt>Heure</dt>
+                                <dd id="upcomingTime">10 h 30</dd>
+                            </div>
+                            <div>
+                                <dt>Emplacement</dt>
+                                <dd id="upcomingLocation">Toronto — Centre ServiceOntario, rue Yonge</dd>
+                            </div>
+                        </dl>
+                        <div class="appointment-actions">
+                            <button type="button" class="btn-secondary">Reporter</button>
+                            <button type="button" class="btn-secondary">Annuler</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card quick-actions">
+                    <h2>Actions rapides</h2>
+                    <ul class="action-list">
+                        <li>
+                            <a href="index.html#booking">
+                                <span>Réserver un examen de conduite</span>
+                                <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#booking">
+                                <span>Renouveler mon permis</span>
+                                <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#booking">
+                                <span>Réserver un examen théorique</span>
+                                <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <section class="card history">
+                <h2>Historique des rendez-vous</h2>
+                <div class="table-scroll">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Emplacement</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr>
+                                <td>22 juill. 2026</td>
+                                <td>Renouvellement de permis</td>
+                                <td>Toronto — rue Yonge</td>
+                                <td><span class="badge badge-info">Confirmé</span></td>
+                            </tr>
+                            <tr>
+                                <td>4 mars 2026</td>
+                                <td>Réservation d'un examen de conduite</td>
+                                <td>Mississauga</td>
+                                <td><span class="badge badge-success">Terminé</span></td>
+                            </tr>
+                            <tr>
+                                <td>12 janv. 2026</td>
+                                <td>Réservation d'un examen théorique</td>
+                                <td>Brampton</td>
+                                <td><span class="badge badge-success">Terminé</span></td>
+                            </tr>
+                            <tr>
+                                <td>30 sept. 2025</td>
+                                <td>Nouveau permis de conduire</td>
+                                <td>Hamilton</td>
+                                <td><span class="badge badge-cancelled">Annulé</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Imprimeur du Roi pour l'Ontario, 2012–2026<span style="font-size: xx-small; color:gray; margin-left: 50px;"> AVIS DE NON-RESPONSABILITÉ : Cette page n'est pas une page officielle du gouvernement de l'Ontario</span></p>
+        </footer>
+
+        <script>
+            const userId = localStorage.getItem('userId');
+
+            if (!userId) {
+                window.location.href = 'auth.html';
+            } else {
+                const STATUS_LABELS = { Confirmed: 'Confirmé', Completed: 'Terminé', Cancelled: 'Annulé' };
+
+                function badgeClassForAppointment(status) {
+                    if (status === 'Confirmed') return 'badge-info';
+                    if (status === 'Completed') return 'badge-success';
+                    if (status === 'Cancelled') return 'badge-cancelled';
+                    return 'badge-info';
+                }
+
+                function capitalize(text) {
+                    return text.charAt(0).toUpperCase() + text.slice(1);
+                }
+
+                function formatShortDate(dateStr) {
+                    return new Intl.DateTimeFormat('fr-CA', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(dateStr));
+                }
+
+                function formatLongDate(dateStr) {
+                    return capitalize(new Intl.DateTimeFormat('fr-CA', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(dateStr)));
+                }
+
+                function renderUser(user) {
+                    document.getElementById('userName').textContent = user.name;
+                    document.getElementById('licenceClassValue').textContent = `Catégorie ${user.licenceClass}`;
+
+                    const statusBadge = document.getElementById('licenceStatusBadge');
+                    const isValid = user.licenceStatus === 'Valid';
+                    statusBadge.textContent = isValid ? 'Valide' : user.licenceStatus;
+                    statusBadge.className = `badge ${isValid ? 'badge-success' : 'badge-cancelled'}`;
+
+                    document.getElementById('licenceExpiryValue').textContent = formatShortDate(user.licenceExpiry);
+
+                    const today = new Date();
+                    const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+                    const daysToExpiry = Math.round((new Date(user.licenceExpiry).getTime() - todayUTC) / (1000 * 60 * 60 * 24));
+                    document.getElementById('licenceReminderText').textContent = daysToExpiry > 0
+                        ? `Rappel de renouvellement dans ${daysToExpiry} jours`
+                        : 'Permis expiré';
+                }
+
+                function renderAppointments(appointments) {
+                    const sorted = [...appointments].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    const upcoming = sorted.find((a) => a.status === 'Confirmed');
+
+                    document.getElementById('upcomingCountValue').textContent = appointments.filter((a) => a.status === 'Confirmed').length;
+                    document.getElementById('totalBookedText').textContent = `${appointments.length} réservés au total`;
+
+                    const upcomingContent = document.getElementById('upcomingAppointmentContent');
+                    if (upcoming) {
+                        document.getElementById('upcomingService').textContent = upcoming.service;
+                        const upcomingBadge = document.getElementById('upcomingBadge');
+                        upcomingBadge.textContent = STATUS_LABELS[upcoming.status] || upcoming.status;
+                        upcomingBadge.className = `badge ${badgeClassForAppointment(upcoming.status)}`;
+                        document.getElementById('upcomingDate').textContent = formatLongDate(upcoming.date);
+                        document.getElementById('upcomingTime').textContent = upcoming.time || '—';
+                        document.getElementById('upcomingLocation').textContent = upcoming.location;
+                    } else {
+                        upcomingContent.innerHTML = '<p>Aucun rendez-vous à venir.</p>';
+                    }
+
+                    const tbody = document.getElementById('historyTableBody');
+                    tbody.textContent = '';
+                    sorted.forEach((appointment) => {
+                        const row = document.createElement('tr');
+
+                        const dateCell = document.createElement('td');
+                        dateCell.textContent = formatShortDate(appointment.date);
+
+                        const serviceCell = document.createElement('td');
+                        serviceCell.textContent = appointment.service;
+
+                        const locationCell = document.createElement('td');
+                        locationCell.textContent = appointment.location;
+
+                        const statusCell = document.createElement('td');
+                        const statusBadge = document.createElement('span');
+                        statusBadge.className = `badge ${badgeClassForAppointment(appointment.status)}`;
+                        statusBadge.textContent = STATUS_LABELS[appointment.status] || appointment.status;
+                        statusCell.appendChild(statusBadge);
+
+                        row.append(dateCell, serviceCell, locationCell, statusCell);
+                        tbody.appendChild(row);
+                    });
+                }
+
+                Promise.all([
+                    fetch(`/users/${userId}`),
+                    fetch(`/appointments/${userId}`)
+                ])
+                    .then(async ([userRes, appointmentsRes]) => {
+                        if (!userRes.ok || !appointmentsRes.ok) {
+                            throw new Error('Failed to load dashboard data');
+                        }
+                        const user = await userRes.json();
+                        const appointments = await appointmentsRes.json();
+                        renderUser(user);
+                        renderAppointments(appointments);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        window.location.href = 'auth.html';
+                    });
+            }
+        </script>
+    </body>
+</html>

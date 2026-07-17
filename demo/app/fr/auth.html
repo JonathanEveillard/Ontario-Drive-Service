@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/@ongov/ontario-design-system-global-styles@latest/dist/misc/ontario-design-system-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../main.css">
+    <title>Vérifiez votre identité — Service des permis de conduire de l'Ontario</title>
+</head>
+    <body>
+        <nav>
+            <!-- Banner -->
+            <div class="banner">
+                <a href="index.html">
+                    <img src="../../Ontario_logo.png" alt="Gouvernement de l'Ontario" property="logo">
+                </a>
+            </div>
+
+            <!-- Language -->
+             <div class="lang">
+                <button type="button" aria-current="true">
+                    Français
+                </button>
+
+                <button type="button" onclick="window.location.href='../auth.html'">
+                    English
+                </button>
+             </div>
+
+        </nav>
+
+        <!-- Main -->
+        <main>
+            <h1>
+                <b>Vérifiez votre identité</b>
+            </h1>
+            <p class="ontario-lead-statement">Confirmez qui vous êtes pour que nous puissions afficher l'état de votre rendez-vous.</p>
+
+            <section class="booking" id="auth">
+                <h2>Connexion</h2>
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label for="fullName">Nom complet</label>
+                        <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Accéder au tableau de bord</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Imprimeur du Roi pour l'Ontario, 2012–2026<span style="font-size: xx-small; color:gray; margin-left: 50px;"> AVIS DE NON-RESPONSABILITÉ : Cette page n'est pas une page officielle du gouvernement de l'Ontario</span></p>
+        </footer>
+
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+        <script>
+            const form = document.querySelector('.auth-form');
+            const toast = document.getElementById('toast');
+            let toastTimeout;
+
+            function showToast(message) {
+                clearTimeout(toastTimeout);
+                toast.textContent = message;
+                toast.classList.add('visible');
+                toastTimeout = setTimeout(() => toast.classList.remove('visible'), 4000);
+            }
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const fullName = document.getElementById('fullName').value;
+
+                try {
+                    const response = await fetch('/auth', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ fullName: fullName })
+                    });
+
+                    if (response.status === 404) {
+                        showToast('Aucun compte correspondant trouvé. Veuillez vérifier votre nom et réessayer.');
+                        return;
+                    }
+
+                    if (!response.ok) {
+                        showToast('Une erreur est survenue. Veuillez réessayer.');
+                        return;
+                    }
+
+                    const data = await response.json();
+                    localStorage.setItem('userId', data.id);
+
+                    window.location.href = 'dashboard.html';
+
+                } catch (err) {
+                    showToast('Erreur réseau. Veuillez réessayer.');
+                }
+            });
+        </script>
+    </body>
+</html>
