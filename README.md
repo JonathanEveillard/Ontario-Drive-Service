@@ -1,6 +1,7 @@
 # Ontario Drive Service 
 
-[![Demo video](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+![Booking form](demo/public/index.png)
 
 A mock ServiceOntario style driver's licence dashboard, built primarily to
 demonstrate automated testing practices using Jest unit tests, Playwright E2E
@@ -11,6 +12,43 @@ tests, and CI integration via GitHub Actions.
 > demonstration purposes only.
 
 
+## User Flow 
+
+This diagram maps the full login → dashboard flow, including every
+success/failure branch. Each decision point (diamond) corresponds to a
+tested scenario in the automated test suite (Jest / Playwright).
+
+```mermaid
+flowchart TD
+    A([Visit auth.html]) --> B[Enter name, submit]
+    B --> C[POST /auth]
+    C --> D{Name matches a user?}
+
+    D -- No --> E[Show error toast<br/>stays on sign in]
+
+    D -- Yes --> F[Store userId<br/>redirect to dashboard.html]
+    F --> G{userId in localStorage?}
+
+    G -- No --> H[Redirect to sign in]
+
+    G -- Yes --> I[Fetch user + appointments<br/>/users/:id, /appointments/:userId]
+    I --> J{Both requests succeed?}
+
+    J -- No --> K[Redirect to sign in]
+
+    J -- Yes --> L([Render dashboard])
+```
+
+## Covered scenarios
+
+| Decision point | Branch | Test coverage |
+|---|---|---|
+| Name matches a user? | No, show error toast | Playwright, failed login shows error, no redirect |
+| Name matches a user? | Yes, store userId, redirect | Playwright, successful login redirects to dashboard |
+| userId in localStorage? | No, redirect to sign in | Manual / planned Playwright,  unauthenticated redirect |
+| Both requests succeed? | Yes, render dashboard | Playwright, dashboard renders correct user data |
+| Both requests succeed? | No, redirect to sign in | Manual, network/server failure fallback |
+| Data layer lookups | N/A | Jest, `getUserById`, `getUserByName`, `getAppointmentsByUserId` (100% coverage) |
 
 
 ## Tech Stack
